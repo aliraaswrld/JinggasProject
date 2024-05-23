@@ -79,6 +79,35 @@
     });
 
 
+  // jQuery untuk menangani modal video
+  $('#videoModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget); // Tombol yang memicu modal
+    var videoSrc = button.data('src'); // Ambil info dari atribut data-*
+    var modal = $(this);
+    modal.find('.modal-body video').attr('src', videoSrc);
+  });
+
+  $('#videoModal').on('hidden.bs.modal', function () {
+    var modal = $(this);
+    modal.find('.modal-body video').attr('src', '');
+  });
+
+ // jQuery untuk menangani modal video
+  $('#videoModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget); // Tombol yang memicu modal
+    var videoSrc = button.data('src'); // Ambil info dari atribut data-*
+    var modal = $(this);
+    modal.find('.modal-body video').attr('src', videoSrc);
+  });
+
+  $('#videoModal').on('hidden.bs.modal', function () {
+    var modal = $(this);
+    var video = modal.find('.modal-body video');
+    video.attr('src', ''); // Hapus sumber video untuk menghentikan pemutaran
+  });
+
+
+
     // Product carousel
     $(".product-carousel").owlCarousel({
         autoplay: false,
